@@ -58,7 +58,7 @@ exports.login = (req, res, next) => {
         }
         jwt.sign(
           { email: foundUser.email, userId: foundUser._id },
-          "jjoo",
+          process.env.JwtSecret,
           { expiresIn: "1hr" }
         );
           res.status(200).json({
